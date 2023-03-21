@@ -21,13 +21,13 @@ public class CadastroUsuarioServlet extends HttpServlet {
 		//Verificar se as senhas sao igais
 		
 		if(senha1.equals(senha2)) {
-			//Redirecionar o usuario para a pagina de login.
+			//Redirecionar o usuario para a pagina de login
 			
 			resp.sendRedirect("index.html");
 			
 		}else {
 			
-			//Redirecionar o usuario para a mesma pagina de cadastro de usuario.
+			//Redirecionar o usuario para a mesma pagina de cadastro de usuario
 			
 			req.getRequestDispatcher("CadastroUsuario.html").forward(req, resp);
 		}
