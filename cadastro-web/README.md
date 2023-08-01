@@ -1,5 +1,5 @@
-#Cadastro Web 
+#Cadastro Web
 
-Software web escrito com tecnologia Java 
+Software web escrito com tecnologias Java
 * frontend - HTML, CSS, Javascript com estilos em Bootstrap 5
-* Backend - Java com APIs Java e banco de dados H2
+* backend - Java com APIs java e banco de dados H2
