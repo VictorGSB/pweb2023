@@ -1,9 +1,6 @@
 package br.edu.ifgoiano.controle;
 
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,11 +16,8 @@ public class CadastroUsuarioServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 7869758393435911873L;
 	
-	
-
-	
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String senha1 = req.getParameter("senha1");
 		String senha2 = req.getParameter("senha2");
 		
@@ -35,8 +29,7 @@ public class CadastroUsuarioServlet extends HttpServlet {
 			usuario.setSenha(senha1);
 			
 			UsuarioRepositorio repositorio = new UsuarioRepositorio();
-			repositorio.inserirUsuario usuario;
-			
+			repositorio.inserirUsuario(usuario);
 			
 			//redirecionar o usuário para a página de login
 			resp.sendRedirect("index.html");
@@ -44,16 +37,14 @@ public class CadastroUsuarioServlet extends HttpServlet {
 			//redirecionar o usuário para a mesma página de cadastro do usuário.
 			req.getRequestDispatcher("usuarioCadastro.jsp").forward(req, resp);
 		}
-	}	
+	}
 	
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		UsuarioRepositorio repositorio = new UsuarioRepositorio();
 		
 		req.setAttribute("usuarios", repositorio.listarUsuario());
 		
 		req.getRequestDispatcher("usuarioListagem.jsp").forward(req, resp);
 	}
-	
-
 }
