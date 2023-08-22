@@ -49,7 +49,7 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
 			//redirecionar o usuário para a página de login
 			resp.sendRedirect("cadastrarUsuario");
 		}else {
-			String msg = "as senhas nao sao iguais ";
+			String msg = "As senhas não são iguais ";
 			req.setAttribute("mensagem", msg);
 			//redirecionar o usuário para a mesma página de cadastro do usuário.
 			req.getRequestDispatcher("usuarioAlteracao.jsp").forward(req, resp);

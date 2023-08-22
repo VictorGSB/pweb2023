@@ -125,4 +125,20 @@ public class UsuarioRepositorio {
 		}
 			
 	}
+	
+	public void excluirUsuario(Usuario usuario) {
+		String sql = "delete from usuario where id = ?";
+		 try(Connection conn = this.getConnection();
+				 PreparedStatement pst = conn.prepareStatement(sql.toString())){
+			 
+			 pst.setInt(1, usuario.getId());
+			 pst.execute();
+			 
+			 conn.commit();
+			 
+		 }catch (SQLException e) {
+			System.out.println("Erro na exclusão de Usuario");
+			e.printStackTrace();
+		}
+	}
 }
